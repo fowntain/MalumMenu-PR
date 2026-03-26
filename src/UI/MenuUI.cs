@@ -247,8 +247,15 @@ public class MenuUI : MonoBehaviour
                 new ToggleInfo(" Unlock Extra Features", () => CheatToggles.unlockFeatures, x => CheatToggles.unlockFeatures = x),
                 new ToggleInfo(" Copy Lobby Code on Disconnect", () => CheatToggles.copyLobbyCodeOnDisconnect, x => CheatToggles.copyLobbyCodeOnDisconnect = x),
                 new ToggleInfo(" Spoof Date to April 1st", () => CheatToggles.spoofAprilFoolsDate, x => CheatToggles.spoofAprilFoolsDate = x),
+            },
+            new List<SubmenuInfo>()
+        ));
+
+        groups.Add(new GroupInfo("Modes", false,
+            new List<ToggleInfo>() {
+                new ToggleInfo(" Party Mode", () => CheatToggles.rgbMode, x => CheatToggles.rgbMode = x),
                 new ToggleInfo(" Stealth Mode", () => CheatToggles.stealthMode, x => CheatToggles.stealthMode = x),
-                new ToggleInfo(" Panic (Disable MalumMenu)", () => CheatToggles.panic, x => CheatToggles.panic = x)
+                new ToggleInfo(" Panic Mode", () => CheatToggles.panic, x => CheatToggles.panic = x)
             },
             new List<SubmenuInfo>()
         ));
@@ -258,8 +265,7 @@ public class MenuUI : MonoBehaviour
                 //new ToggleInfo(" Open Plugin Config", () => false, x => Utils.OpenConfigFile()),
                 new ToggleInfo(" Reload Config", () => CheatToggles.reloadConfig, x => CheatToggles.reloadConfig = x),
                 new ToggleInfo(" Save to Profile", () => false, x => CheatToggles.SaveTogglesToProfile()),
-                new ToggleInfo(" Load from Profile", () => false, x => CheatToggles.LoadTogglesFromProfile()),
-                new ToggleInfo(" RGB Mode", () => CheatToggles.rgbMode, x => CheatToggles.rgbMode = x)
+                new ToggleInfo(" Load from Profile", () => false, x => CheatToggles.LoadTogglesFromProfile())
             },
             new List<SubmenuInfo>()
         ));
