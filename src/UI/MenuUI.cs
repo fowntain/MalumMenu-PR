@@ -271,7 +271,7 @@ public class MenuUI : MonoBehaviour
 
         tabButtonStyle = new GUIStyle(GUI.skin.button)
         {
-            fontSize = 18,
+            fontSize = 17,
             fontStyle = FontStyle.Bold,
         };
 
