@@ -385,8 +385,18 @@ public class MenuUI : MonoBehaviour
         GUILayout.BeginVertical(GUILayout.Width(windowRect.width * 0.15f));
         for (var i = 0; i < groups.Count; i++)
         {
+            Color standardColor = GUI.backgroundColor;
+
+            if (selectedTab == i)
+            {
+                GUI.backgroundColor = new Color(0.2f, 0.2f, 0.2f);
+            }
+
             if (GUILayout.Button(groups[i].name, tabButtonStyle, GUILayout.Height(35)))
                 selectedTab = i;
+
+            GUI.backgroundColor = standardColor;
+
         }
         GUILayout.EndVertical();
 
