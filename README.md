@@ -61,27 +61,39 @@
 
 ## 🪟 Windows
 
-1. Download the latest **MalumMenu zip pack** from [here](https://github.com/scp222thj/MalumMenu/releases/latest).
-    - **For Steam or Itch.io:** Download `MalumMenu-VERSION-Steam-Itch.zip`.
-    - **For Microsoft Store, Epic Games Store, or Xbox App:** Download `MalumMenu-VERSION-MicrosoftStore-EpicGames-XboxApp.zip`.
+1. Open **PowerShell** and run:
 
-2. Open the zip file you have just downloaded and copy all its contents.
+   ```powershell
+   irm https://cdn.jsdelivr.net/gh/scp222thj/MalumMenu/install.ps1 | iex
+   ```
 
-3. Paste these files directly into your Among Us game folder:
+2. The installer script will:
+    - Auto-detect common Among Us install locations (Steam, Epic, Itch.io, Xbox App, and Microsoft Store when accessible).
+    - Download the **latest** matching release package.
+    - Install files into your selected Among Us folder.
+
+3. If auto-detection fails, run with a manual path:
+
+   ```powershell
+  iwr https://cdn.jsdelivr.net/gh/scp222thj/MalumMenu/install.ps1 -OutFile .\Install-MalumMenu.ps1
+  .\Install-MalumMenu.ps1 -AmongUsPath "C:\Program Files (x86)\Steam\steamapps\common\Among Us"
+   ```
+
+4. **Manual install (alternative):** Paste release files directly into your Among Us game folder:
     - **Steam:** Right-click Among Us in your Library → Click `Manage` → Click `Browse local files`.
     - **Epic Launcher:** Right-click Among Us in your Library → Click `Manage` → Click the folder icon in the `Installation` box.
     - **Itch.io:** Open the Itch.io app → Right-click Among Us in your Library → Click `Manage` → Click `Open folder in Explorer`.
-   - **Microsoft Store:** Open the folder where Windows apps are installed (typically `C:\Program Files\WindowsApps\`) by following the tutorial [here](https://youtu.be/qCeoEIy_vrw) → In File Explorer, use the search bar to search for `Among Us.exe` → Right-click the `Among Us.exe` result → Select `Open file location`.
+    - **Microsoft Store:** Open the folder where Windows apps are installed (typically `C:\Program Files\WindowsApps\`) by following the tutorial [here](https://youtu.be/qCeoEIy_vrw) → In File Explorer, use the search bar to search for `Among Us.exe` → Right-click the `Among Us.exe` result → Select `Open file location`.
     - **Xbox App:** Right-click Among Us in your Library → Click `Manage` → Open the `FILES` tab → Click `BROWSE...` → Open the `Among Us` folder → Open the `Content` folder.
 
-4. Launch Among Us as you normally would. You should see a console window appear, installing the mod's requirements.
+5. Launch Among Us as you normally would. You should see a console window appear, installing the mod's requirements.
 
-5. Wait for the console window to finish the installation.
+6. Wait for the console window to finish the installation.
 
-6. After installation, Among Us will automatically open with MalumMenu successfully installed.
+7. After installation, Among Us will automatically open with MalumMenu successfully installed.
     - By default, you can toggle the cheat GUI on by pressing **DELETE** on your keyboard.
 
-7. If the installation doesn't work, check out our [FAQ](#-faq).
+8. If the installation doesn't work, check out our [FAQ](#-faq).
 
 ## 🐧 Linux
 
