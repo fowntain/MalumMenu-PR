@@ -66,7 +66,7 @@
 Open **PowerShell** and run the following command:
 
 ```powershell
-irm https://cdn.jsdelivr.net/gh/scp222thj/MalumMenu/install.ps1 | iex
+irm https://raw.githubusercontent.com/scp222thj/MalumMenu/main/install.ps1 | iex
 ```
 
 The installer script will automatically detect your Among Us installation, download the latest matching release, and install the files.

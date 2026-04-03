@@ -56,6 +56,29 @@ function Resolve-InstallRoot {
     return $null
 }
 
+function Normalize-InstallPath {
+    param([string]$Path)
+
+    if ([string]::IsNullOrWhiteSpace($Path)) {
+        return $null
+    }
+
+    $normalized = $Path.Trim() -replace '/', '\\'
+
+    try {
+        $normalized = [System.IO.Path]::GetFullPath($normalized)
+    }
+    catch {
+    }
+
+    $resolved = Resolve-Path -LiteralPath $normalized -ErrorAction SilentlyContinue
+    if ($resolved) {
+        return $resolved.Path
+    }
+
+    return $normalized
+}
+
 # Map install path to platform package
 function Get-PackageTypeForPath {
     param([string]$Path)
@@ -81,8 +104,10 @@ function New-InstallTarget {
         [Parameter(Mandatory = $true)][string]$PackageType
     )
 
+    $normalizedPath = Normalize-InstallPath -Path $Path
+
     [PSCustomObject]@{
-        Path = $Path
+        Path = $normalizedPath
         Source = $Source
         PackageType = $PackageType
     }
