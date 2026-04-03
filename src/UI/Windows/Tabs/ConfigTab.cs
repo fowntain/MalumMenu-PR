@@ -27,6 +27,12 @@ public class ConfigTab : ITab
 
         CheatToggles.reloadConfig = GUILayout.Toggle(CheatToggles.reloadConfig, " Reload Config");
 
+        if (CheatToggles.reloadConfig)
+        {
+            MalumMenu.Plugin.Config.Reload();
+            CheatToggles.reloadConfig = false;
+        }
+
         CheatToggles.saveProfile = GUILayout.Toggle(CheatToggles.saveProfile, " Save to Profile");
 
         if (CheatToggles.saveProfile)

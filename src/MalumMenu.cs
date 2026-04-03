@@ -16,6 +16,7 @@ namespace MalumMenu;
 public partial class MalumMenu : BasePlugin
 {
     public Harmony Harmony { get; } = new(Id);
+    public static MalumMenu Plugin;
     public new static ManualLogSource Log;
 
     public static MenuUI menuUI;
@@ -45,6 +46,7 @@ public partial class MalumMenu : BasePlugin
     public override void Load()
     {
         Log = base.Log;
+        Plugin = this;
 
         // Loads config settings
         menuKeybind = Config.Bind("MalumMenu.GUI",
@@ -113,7 +115,6 @@ public partial class MalumMenu : BasePlugin
         protectUI = AddComponent<ProtectUI>();
 
         keybindListener = AddComponent<KeybindListener>();
-        keybindListener.Plugin = this;
 
         // Disables Telemetry (haven't fully tested if it works, but according to Unity docs it should)
         if (noTelemetry.Value)
