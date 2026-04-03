@@ -1,7 +1,6 @@
 [CmdletBinding()]
 param(
     [string]$AmongUsPath,
-    [ValidateSet("Steam-Itch", "MicrosoftStore-EpicGames-XboxApp")]
     [string]$PackageType,
     [switch]$Force,
     [switch]$LaunchGame,
@@ -414,6 +413,11 @@ function Copy-ModFiles {
 
 try {
     Write-Info "MalumMenu Windows installer"
+
+    $validPackageTypes = @("Steam-Itch", "MicrosoftStore-EpicGames-XboxApp")
+    if ($PSBoundParameters.ContainsKey("PackageType") -and -not [string]::IsNullOrWhiteSpace($PackageType) -and ($PackageType -notin $validPackageTypes)) {
+        throw "Invalid PackageType '$PackageType'. Valid values: $($validPackageTypes -join ', ')"
+    }
 
     $selectedPackageType = $PackageType
     $tempRoot = Join-Path ([System.IO.Path]::GetTempPath()) ("MalumMenuInstall-" + [Guid]::NewGuid().ToString("N"))
